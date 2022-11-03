@@ -1,4 +1,4 @@
-## Weather-App
+# Weather-App
 
     Version       : v.2.4.5
     Python version      : 3.8.10 64-bit
@@ -6,7 +6,7 @@
     Time in (IST).format{24H} : '17_00'
 
 
-# Data structures used
+## Data structures used
 
     dict_info = {
         'weather_desc'    : json_data['weather'][0]['main'],
@@ -25,7 +25,7 @@
                     
 
    
-# API Errors 
+## API Errors 
 
     # When given location is unknown by the API.
     {"cod":"404","message":"city not found"}
@@ -39,7 +39,7 @@
 
 
 
-# Python modules and functions from modules required
+## Python modules and functions from modules required
 
     import  requests , time
 
