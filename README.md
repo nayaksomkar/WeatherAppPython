@@ -25,7 +25,7 @@ Time in (IST).format{24H} : '17_00'
                     
 
    
-# API Errors --       
+# API Errors 
 
     # When given location is unknown by the API.
     {"cod":"404","message":"city not found"}
@@ -43,7 +43,7 @@ Time in (IST).format{24H} : '17_00'
 
     import  requests , time
 
-    # Importing functions from flet module -- 
+    # Importing functions from flet module
             from flet import (
             icons,
             flet,
@@ -56,4 +56,6 @@ Time in (IST).format{24H} : '17_00'
         )
                                                                                           
 
-flet.docs = 'https://flet.dev/docs/'                                                                                               
+
+
+This App was made with the help of flet [flet.docs](https://flet.dev/docs/).
