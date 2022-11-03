@@ -1,9 +1,9 @@
-# Weather-App
+# Weather App
 
-    Version       : v.2.4.5
-    Python version      : 3.8.10 64-bit
-    Last Updated      : 28 Oct Fri, 2022 
-    Time in (IST).format{24H} : '17_00'
+    Version       : 2.4.5
+    Python        : 3.8.10 64-bit
+    Last Updated  : 28 Oct Fri, 2022 
+    Time in (IST) : '17_00'.format{24H}
 
 
 ## Data structures used
@@ -39,9 +39,12 @@
 
 
 
-## Python modules and functions from modules required
+## Python modules required
 
     import  requests , time
+
+## Python functions required from Python modules 
+[flet module](https://flet.dev/docs/)
 
     # Importing functions from flet module
             from flet import (
@@ -55,7 +58,3 @@
             IconButton
         )
                                                                                           
-
-
-
-This App was made with the help of flet [flet.docs](https://flet.dev/docs/).
