@@ -1,9 +1,9 @@
 ## Weather-App
 
-Version       : v.2.4.5
-Python version      : 3.8.10 64-bit
-Last Updated      : 28 Oct Fri, 2022 
-Time in (IST).format{24H} : '17_00'
+    Version       : v.2.4.5
+    Python version      : 3.8.10 64-bit
+    Last Updated      : 28 Oct Fri, 2022 
+    Time in (IST).format{24H} : '17_00'
 
 
 # Data structures used
