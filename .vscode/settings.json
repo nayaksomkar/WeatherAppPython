@@ -1,3 +1,6 @@
 {
-    "code-runner.ignoreSelection": false
+    "code-runner.ignoreSelection": false,
+    "cSpell.words": [
+        "gmtime"
+    ]
 }

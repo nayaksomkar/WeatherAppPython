@@ -43,6 +43,8 @@ def getWeather(location):
 
 def main(page: Page):
 
+    page.theme_mode = 'dark'
+
     # \\ Row_01 -- weather_desc = [city_weather_desc,city_weather_icon,city_weather_temp].
     city_weather_desc = Text(
                             value = 'N/A',
@@ -203,7 +205,7 @@ def main(page: Page):
                 info.value = '{} *{}'.format(' '*10,"You're not connected\n" + 'ERR_INTERNET_DISCONNECTED')
                
             else:
-                info.value = '{} *{}'.format(' '*10,'unkown Error\n'+ str(_err))
+                info.value = '{} *{}'.format(' '*10,'unknown Error\n'+ str(_err))
     
 
         page.update()
