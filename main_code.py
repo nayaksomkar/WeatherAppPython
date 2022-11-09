@@ -47,12 +47,12 @@ def main(page: Page):
 
     page.theme_mode = 'dark'
     page.theme = theme.Theme(color_scheme_seed="purple")
-    page.bgcolor = '#413551'
+    page.bgcolor = '#383045'
 
     def set_dark_theme(e):
         page.theme_mode = 'dark'
         page.theme = theme.Theme(color_scheme_seed="purple")
-        page.bgcolor = '#413551'
+        page.bgcolor = '#383045'
         page.update()
 
     def set_light_theme(e):
