@@ -9,7 +9,9 @@ Text,
 TextField,
 Image,
 Row,
-IconButton
+IconButton,
+theme,
+colors,
 )
 
 
@@ -44,14 +46,21 @@ def getWeather(location):
 def main(page: Page):
 
     page.theme_mode = 'dark'
+    page.theme = theme.Theme(color_scheme_seed="purple")
+    page.bgcolor = '#4A4052'
 
     def set_dark_theme(e):
         page.theme_mode = 'dark'
+        page.theme = theme.Theme(color_scheme_seed="purple")
+        page.bgcolor = '#4A4052'
         page.update()
 
     def set_light_theme(e):
         page.theme_mode = 'light'
+        page.theme = theme.Theme(color_scheme_seed="purple")
+        page.bgcolor = '#D4B9EC'
         page.update()
+
 
         
 
@@ -106,7 +115,7 @@ def main(page: Page):
                     width=80,
                     height=80,
                     fit="contain",
-                    color='orange',
+                    color='#7949E4',
     )
     
     sunrise_time = Text(
@@ -122,7 +131,7 @@ def main(page: Page):
                     width=80,
                     height=80,
                     fit="contain",
-                    color='orange',
+                    color='#7949E4',
     )
 
     sunset_time = Text(
@@ -140,7 +149,7 @@ def main(page: Page):
                         width=55,
                         height=55,
                         fit="contain",
-                        color='orange',
+                        color='#7949E4',
     )
 
     humidity_details = Text(
@@ -156,7 +165,7 @@ def main(page: Page):
                     width = 55,
                     height = 55,
                     fit = "contain",
-                    color = 'orange',
+                    color = '#7949E4',
     )
 
     wind_speed = Text(
@@ -172,7 +181,7 @@ def main(page: Page):
                         width=55,
                         height=55,
                         fit="contain",
-                        color = 'orange',
+                        color = '#7949E4',
     )
 
     pressure_details = Text(
@@ -262,7 +271,7 @@ def main(page: Page):
     )
 
     city_name = TextField(
-                    label="Name of the City",
+                    hint_text="Name of the City",
                     icon = icons.LOCATION_ON,
                     color='white', 
                     border_color='white',
@@ -273,7 +282,7 @@ def main(page: Page):
         [city_name,
             IconButton(
             icon=icons.SEARCH,
-            icon_color="orange",
+            icon_color="#7949E4",
             icon_size=40,
             tooltip="Search",
             on_click=search_clicked),info],
