@@ -74,7 +74,7 @@ def main(page: Page):
     dark_theme = IconButton(
         icon=icons.NIGHTLIGHT,
         icon_size=20,
-        tooltip='light theme',
+        tooltip='dark theme',
         on_click=set_dark_theme
     )
 
