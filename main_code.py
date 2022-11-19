@@ -58,7 +58,7 @@ def main(page: Page):
     def set_light_theme(e):
         page.theme_mode = 'light'
         page.theme = theme.Theme(color_scheme_seed="purple")
-        page.bgcolor = '#D4B9EC'
+        page.bgcolor = '#9895EF'
         page.update()
 
 
