@@ -1,6 +1,6 @@
 import  requests , time
 
-# \\ Importing functions from flet module -- 
+#  Importing functions from flet module -- 
 from flet import (
 icons,
 flet,
@@ -15,13 +15,13 @@ colors,
 )
 
 
-# \\ Takes the locations and collect information from the API -- and returns a dictionary of weather_info.
+#  Takes the locations and collect information from the API -- and returns a dictionary of weather_info.
 def getWeather(location):
     api_id = 'a81442b129ff26e3f19849d089b4bba5' 
     api = "https://api.openweathermap.org/data/2.5/weather?q="+location+"&appid="+api_id
     json_data = requests.get(api).json()
 
-    # \\ {"cod":"404","message":"city not found"} -- {"cod":"400","message":"Nothing to geocode"}.
+    #  {"cod":"404","message":"city not found"} -- {"cod":"400","message":"Nothing to geocode"}.
     if json_data.get('cod') != '404' and json_data.get('cod') != '400':
         dict_info = {
             'weather_desc'   : json_data['weather'][0]['main'],
@@ -78,7 +78,7 @@ def main(page: Page):
 
     theme_change = Row([light_theme,dark_theme,])
 
-    # \\ Row_01 -- weather_desc = [city_weather_desc,city_weather_icon,city_weather_temp].
+    # ow_01 -- weather_desc = [city_weather_desc,city_weather_icon,city_weather_temp].
     city_weather_desc = Text(
                             value = 'N/A',
                             size=30,
@@ -107,7 +107,7 @@ def main(page: Page):
     weather_desc = Row([city_weather_desc,city_weather_icon,city_weather_temp],alignment='center')
 
 
-    # \\ Row_02 -- sun_desc = [sunrise_icon,sunrise_time,sunset_icon,sunset_time].
+    #  Row_02 -- sun_desc = [sunrise_icon,sunrise_time,sunset_icon,sunset_time].
     sunrise_icon = Image(
                     src= f'https://cdn-icons-png.flaticon.com/512/8098/8098385.png',
                     width=80,
@@ -141,7 +141,7 @@ def main(page: Page):
 
     sun_desc = Row([sunrise_icon,sunrise_time,sunset_icon,sunset_time],alignment='center')
 
-    # \\ Row_03 -- city_weather = [humidity_icon,humidity_details,wind_icon,wind_speed,pressure_icon,pressure_details]
+    #  Row_03 -- city_weather = [humidity_icon,humidity_details,wind_icon,wind_speed,pressure_icon,pressure_details]
     humidity_icon = Image(
                         src= f'https://cdn-icons-png.flaticon.com/512/727/727790.png',
                         width=55,
@@ -193,7 +193,7 @@ def main(page: Page):
     city_weather = Row([humidity_icon,humidity_details,wind_icon,wind_speed,pressure_icon,pressure_details],alignment='center')
 
 
-    # \\ Triggers the program -- when the search icon clicked or enter_key is pressed.
+    # ggers the program -- when the search icon clicked or enter_key is pressed.
     def search_clicked(city):
         city_weather_icon.src = "http://openweathermap.org/img/wn/{}@2x.png".format('03d')
 
@@ -215,11 +215,11 @@ def main(page: Page):
                 temp_values_str = 'Temp  : {} °C / {}  °F \n Feels like  :  {} °C / {}  °F'.format(tmp_tup[0],tmp_tup[1],tmp_tup[2],tmp_tup[3])
                 city_weather_temp.value = temp_values_str
 
-                # \\ Row_02.value.update -- {sunrise_time,sunset_time}.value.update.
+                #  Row_02.value.update -- {sunrise_time,sunset_time}.value.update.
                 sunrise_time.value = 'Sunrise   :   {}  AM{}'.format(str(weather_info['sunrise'])[:5],' '*20)
                 sunset_time.value = 'Sunset   :   {}  PM'.format(str(weather_info['sunset'])[:5])
             
-                # \\ Row_03.value.update -- {humidity_details,wind_speed,pressure_details}.value.update.
+                #  Row_03.value.update -- {humidity_details,wind_speed,pressure_details}.value.update.
                 humidity_details.value = 'Humidity  :   {} %{}'.format(weather_info['humidity'],' '*5)
                 wind_speed.value = 'Wind Speed    :   {} m/s{}'.format(weather_info['wind_speed'],' '*5)
                 pressure_details.value = 'Pressure  :   {} hPa'.format(weather_info['pressure'])
@@ -227,11 +227,11 @@ def main(page: Page):
             else:
                 info.value = '{} *{}'.format(' '*10,weather_info['message'])
 
-                # \\ All values set to default -- with Error msg.
+                #  All values set to default -- with Error msg.
                 default_values()
 
         except Exception as _err:
-            # \\ All values set to default -- with Error msg.
+            #  All values set to default -- with Error msg.
             default_values()
 
             if 'Failed to establish a new connection' in str(_err):
@@ -245,17 +245,17 @@ def main(page: Page):
     
 
     def default_values():
-        # \\ Row_01.value.default -- {city_weather_desc,city_weather_temp}.value.default.
+        #  Row_01.value.default -- {city_weather_desc,city_weather_temp}.value.default.
         city_weather_desc.value = 'N/A'
         tmp_tup = ('N/A','N/A','N/A','N/A')
         temp_values_str = 'Temp  : {} °C / {}  °F \n Feels like  :  {} °C / {}  °F'.format(tmp_tup[0],tmp_tup[1],tmp_tup[2],tmp_tup[3])
         city_weather_temp.value = temp_values_str
 
-        # \\ Row_03.value.default -- {sunrise_time,sunset_time}.value.default.
+        #  Row_03.value.default -- {sunrise_time,sunset_time}.value.default.
         sunrise_time.value = 'Sunrise   :   {}  AM{}'.format('N/A',' '*20)
         sunset_time.value = 'Sunset   :   {}  PM'.format('N/A')
             
-        # \\ Row_03.value.default -- {humidity_details,wind_speed,pressure_details}.value.default.
+        #  Row_03.value.default -- {humidity_details,wind_speed,pressure_details}.value.default.
         humidity_details.value = 'Humidity  :   {} %{}'.format('N/A',' '*5)
         wind_speed.value = 'Wind Speed    :   {} m/s{}'.format('N/A',' '*5)
         pressure_details.value = 'Pressure  :   {} hPa'.format('N/A')
