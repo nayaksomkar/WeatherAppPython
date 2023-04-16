@@ -2,5 +2,8 @@
     "code-runner.ignoreSelection": false,
     "cSpell.words": [
         "gmtime"
-    ]
+    ],
+    "code-runner.runInTerminal": true,
+    "code-runner.saveAllFilesBeforeRun": true,
+    "code-runner.saveFileBeforeRun": true
 }
