@@ -1,60 +1,137 @@
 # Weather App
 
-    Version       : 2.4.5
-    Python        : 3.8.10 64-bit
-    Last Updated  : 28 Oct Fri, 2022 
-    Time in (IST) : '17_00'.format{24H}
+A modern desktop weather application built with Python and Flet featuring an Apple-inspired design. Displays current weather information for any city worldwide.
 
+## Features
 
-## Data structures used
+- **Apple-Inspired UI**: Clean, modern interface with card-based layout
+- **Temperature Display**: Large, prominent temperature with feels-like temperature
+- **Weather Conditions**: Weather description with visual icons from OpenWeatherMap
+- **Sun Information**: Sunrise and sunset times
+- **Weather Details**: Humidity, wind speed, and atmospheric pressure
+- **Theme Support**: Dark and light mode toggle with Apple-style switcher
+- **Search**: City search with Enter key or click
+- **Demo Mode**: Runs without API key showing sample data
 
-    dict_info = {
-        'weather_desc'    : json_data['weather'][0]['main'],
-        'weather_icon'    : json_data['weather'][0]['icon'],
-        'temp_C'          : int(json_data['main']['temp'] - 273.15),
-        'feels_like_C'    : int(json_data['main']['feels_like'] - 273.15),
-        'wind_speed'      : json_data['wind']['speed'],
-        'pressure'        : json_data['main']['pressure'],
-        'humidity'        : json_data['main']['humidity'],
-        'sunrise'         : time.strftime('%I:%M:%S', time.gmtime(json_data['sys']['sunrise'] - 21600)),
-        'sunset'          : time.strftime('%I:%M:%S', time.gmtime(json_data['sys']['sunset'] - 21600)),
-        'name'            : json_data['name'],
-        'country'         : json_data['sys']['country'],                                                
-    } 
+## Project Structure
 
-                    
+```
+WeatherAppPython/
+├── main.py              # Application entry point
+├── weather_api.py       # API interaction and data parsing
+├── ui_components.py     # UI widgets and layouts (Apple-style)
+├── config.py           # API key and settings
+├── requirements.txt    # Python dependencies
+└── README.md           # This file
+```
 
-   
-## API Errors 
+## Prerequisites
 
-    # When given location is unknown by the API.
-    {"cod":"404","message":"city not found"}
+- Python 3.8 or higher
+- pip (Python package manager)
 
-    # When given location or (str) is a black (str) == ''.
-    {"cod":"400","message":"Nothing to geocode"}
+## Setup
 
-    # When not connected to internet.
-    HTTPSConnectionPool(host='api.openweathermap.org',port=443): Max retries exceeded with url: /data/2.5/weather?q={}&appid=a81442b129ff26e3f19849d089b4bba5 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001120F473AF0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+### 1. Clone the Repository
 
+```bash
+git clone https://github.com/nayaksomkar/WeatherAppPython.git
+cd WeatherAppPython
+```
 
+### 2. Create a Virtual Environment
 
+**Windows:**
+```bash
+python -m venv venv
+```
 
-## Python modules required
+**macOS/Linux:**
+```bash
+python3 -m venv venv
+```
 
-    import  requests , time
+### 3. Activate the Virtual Environment
 
-## Python functions required from Python modules 
-[flet module](https://flet.dev/docs/)
+**Windows (PowerShell):**
+```bash
+.\venv\Scripts\Activate
+```
 
-    # Importing functions from flet module
-            from flet import (
-            icons,
-            flet,
-            Page,
-            Text,
-            TextField,
-            Image,
-            Row,
-            IconButton
-        )
-                                                                                          
+**Windows (Command Prompt):**
+```bash
+venv\Scripts\activate.bat
+```
+
+**macOS/Linux:**
+```bash
+source venv/bin/activate
+```
+
+### 4. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 5. (Optional) Configure API Key
+
+To get real weather data, add your OpenWeatherMap API key in `config.py`:
+
+```python
+API_KEY = "your_openweathermap_api_key"
+```
+
+Get a free API key from [OpenWeatherMap](https://openweathermap.org/api).
+
+**Note**: Without an API key, the app runs in demo mode showing sample data.
+
+## Running the Application
+
+With your virtual environment activated:
+
+```bash
+python main.py
+```
+
+## Weather Data Displayed
+
+| Field | Description | Unit |
+|-------|-------------|------|
+| Temperature | Current temperature | °C |
+| Feels Like | Temperature perception | °C |
+| Weather | Condition description | Text |
+| Humidity | Atmospheric humidity | % |
+| Wind Speed | Wind velocity | m/s |
+| Pressure | Atmospheric pressure | hPa |
+| Sunrise | Sunrise time | HH:MM |
+| Sunset | Sunset time | HH:MM |
+
+## Code Organization
+
+- **config.py**: Stores API key and configuration settings (excluded from git)
+- **weather_api.py**: Handles API calls, response parsing, and sample data
+- **ui_components.py**: Contains all Flet UI widgets with Apple-style design
+- **main.py**: Application initialization, event handling, and main layout
+
+## Troubleshooting
+
+**Application fails to start:**
+- Verify Python version (3.8+)
+- Ensure virtual environment is activated
+- Check that all dependencies are installed
+
+**Weather data not loading:**
+- Verify internet connection
+- Check API key validity in `config.py`
+- App will work in demo mode without API key
+
+**UI issues:**
+- Update Flet to the latest version: `pip install flet --upgrade`
+
+## Dependencies
+
+| Package | Version | Purpose |
+|---------|---------|---------|
+| requests | >=2.28.0 | HTTP API calls |
+| flet | >=0.21.0 | Desktop UI framework |
